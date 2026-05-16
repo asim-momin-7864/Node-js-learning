@@ -1,0 +1,1 @@
+The ocean is the body of salt water that covers approximately 70.8% of Earth.
