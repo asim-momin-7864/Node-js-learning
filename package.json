@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "fmanager": "./project-file-manager/file-manager-ui.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/asim-momin-7864/Node-js-learning.git"

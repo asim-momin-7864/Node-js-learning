@@ -1,3 +1,10 @@
+#!/usr/bin/env node
+
+//* Shibhang
+// now we dont need to write node at starting to execute programe
+
+//* How to make programe run from anywhere and just buy its name .e.g like git
+
 //* Terminal UI for File Manager
 
 import * as readline from "node:readline/promises";
