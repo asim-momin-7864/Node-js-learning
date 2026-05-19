@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Live number counting</h1>
+    <div id="container-box"></div>
+
+    <script>
+      const containerBox = document.getElementById("container-box");
+
+      // browser in-built feature to establish connection
+      // event source object
+      const eventSource = new EventSource(
+        "http://localhost:3000/stream/counter",
+      );
+
+      // when connection opens
+      eventSource.onopen = () => {
+        console.log("Connection Opened.");
+      };
+
+      // when get error
+      eventSource.onerror = (err) => {
+        console.error("Error in stream connection: ", err);
+      };
+
+      // when getting message/data from server
+      eventSource.onmessage = (event) => {
+        console.log("event : ", event);
+        console.log("received message: ", event.data);
+
+        const div = document.createElement("div");
+        div.textContent = event.data;
+
+        div.classList.add("event");
+
+        containerBox.appendChild(div);
+      };
+    </script>
+  </body>
+</html>
