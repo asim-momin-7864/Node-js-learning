@@ -73,7 +73,7 @@ const server = createServer(async (req, res) => {
     }, 150);
 
     // when stream is ended in between
-    //* ⚠️ CRITICAL PRODUCTION HABIT: Clean up if the user closes the browser window mid-stream
+    //* CRITICAL PRODUCTION HABIT: Clean up if the user closes the browser window mid-stream
 
     req.on("close", () => {
       clearInterval(streamTimer);
