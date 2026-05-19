@@ -22,8 +22,8 @@ const server = createServer(async (req, res) => {
     // Special header
     res.writeHead(200, {
       "content-type": "text/event-stream", // this tell browser it SSE
-      "cache-control": "no-cache",
-      connection: "keep-alive",
+      "cache-control": "no-cache", // Prevents WSL/proxies from buffering data
+      "connection": "keep-alive",
     });
 
     // dummy simulation: our data is coming

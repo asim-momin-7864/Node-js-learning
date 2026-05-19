@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parrots Wikipedia</title>
+  </head>
+  <body>
+    <h1>Parrots Wikipedia</h1>
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Rainbow_lorikeet_%28Trichoglossus_moluccanus_moluccanus%29_Sydney.jpg/500px-Rainbow_lorikeet_%28Trichoglossus_moluccanus_moluccanus%29_Sydney.jpg"
+      alt=""
+      style="height: 20rem;"
+    />
+
+    <div id="content-box"></div>
+
+    <div style="width: 100%; height: 40rem;">
+
+    </div>
+
+    <script>
+      const contentBox = document.getElementById("content-box");
+
+      // event source object
+      const eventSource = new EventSource("http://localhost:3000/stream/data");
+
+      eventSource.onopen = () => {
+        console.log("Connection is opended");
+      };
+
+      eventSource.onerror = (err) => {
+        console.error("Errror in connection: ", err);
+      };
+
+      eventSource.onmessage = (event) => {
+        const span = document.createElement("span");
+        span.innerText = event.data;
+
+        contentBox.appendChild(span);
+      };
+    </script>
+  </body>
+</html>
